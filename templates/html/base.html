@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    {{ template "style" . }}
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/images.css">
+    <link rel="stylesheet" href="/static/css/user.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!-- <img src="/static/resources/logo-gwhite.png" alt=""> -->
+                </span>
+                <div class="text logo-text">
+                    <!-- <span class="tagline">Your Astro Reader</span> -->
+                </div>
+            </div>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <ion-icon name="search-outline" class="icon"></ion-icon>
+                    <input id="searchInput" type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links" id="zodiac-buttons">
+                    <li class="nav-link">
+                        <a href="/dashboard" class="nav-btn">
+                            <ion-icon name="grid-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/images" class="nav-btn">
+                            <ion-icon name="images-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Images</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/users" class="nav-btn">
+                            <ion-icon name="people-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">User Management</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="logout-btn">
+                    <a href="/logout/">
+                        <ion-icon name="log-out-outline" class="icon"></ion-icon>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+    <section class="content-wrapper">
+        {{ template "content" . }}
+    </section>
+
+    {{ template "script" . }}
+    {{ define "style" }} {{ end }}
+    {{ define "script" }} {{ end }}
+
+    <script src="/static/js/getuser.js"></script>
+</body>
+</html>
