@@ -5,6 +5,70 @@
 
 
 <div class="dash2">
-    This is Images
+    <div class="head-title">
+        <div class="left">
+            <h1>Images</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Images</a>
+                </li>
+                <li><i class='bx bx-chevron-right'></i></li>
+                <li>
+                    <a class="active" href="#">Uploads</a>
+                </li>
+            </ul>
+        </div>
+        <!-- <a href="#" class="btn-download">
+            <i class='bx bxs-cloud-download' ></i>
+            <span class="text">Download PDF</span>
+        </a> -->
+    </div>
+
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Recent Uploads</h3>
+                <a href="#" class="btn-download">
+					<i class='bx bx-upload' ></i>
+					<span class="text">Upload Image</span>
+				</a>
+                <i class='bx bx-filter'></i>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Date Uploaded</th>
+                        <th>Quantity</th>
+                        <th>Limonene Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Images }}
+                    <tr>
+                        <td>
+                            <img src="{{ .Image }}">
+                            <p>{{ .Name }}</p>
+                        </td>
+                        <td>{{ .Date }}</td>
+                        <td><span class="lim-percent">{{ .LimonenePercent }}</span></td>
+                        <td><span class="status 
+                            {{if eq .Intensity 1}} low 
+                            {{else if eq .Intensity 2}} medium 
+                            {{else}} high 
+                            {{end}}">
+                            {{if eq .Intensity 1}} Low 
+                            {{else if eq .Intensity 2}} Medium 
+                            {{else}} High 
+                            {{end}}
+                        </span></td>
+                        <!-- <td><span class="status low">{{ .Intensity }}</span></td> -->
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 </div>
 {{ end }}

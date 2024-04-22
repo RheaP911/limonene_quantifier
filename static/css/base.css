@@ -20,6 +20,7 @@ body {
 nav {
     /* border-right: 1px solid #c0d0eb; */
     box-shadow: 0 0 3px #c0d0eb;
+    
 }
 
 .sidebar {
@@ -193,6 +194,14 @@ nav {
 .sidebar li a:hover , 
 .sidebar li a.active {
     background-color: #5D87FF;
+}
+
+.sidebar li a.active .text {
+    color: #fff;
+}
+
+.sidebar li a.active .icon {
+    color: #fff;
 }
 
 .sidebar li a:hover .icon,
