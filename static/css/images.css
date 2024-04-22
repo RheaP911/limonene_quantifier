@@ -2,19 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
 }
 
 .dash2 {
-    position: absolute;
-    top: 0;
-    left: 250px;
-    padding: 24px;
-    padding-top: 75px;
+	position: absolute;
+	top: 0;
+	left: 250px;
+	padding: 24px;
+	padding-top: 75px;
+
 }
 
 
@@ -36,12 +37,12 @@ li {
 	--grey: #fff;
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
-    --subtext: #5A6A85;
+	--subtext: #5A6A85;
 	--red: #FA896B;
 	--yellow: #FFAE1F;
 	--light-yellow: #FFF2C6;
 	--orange: #FD7238;
-    --green: #13DEB9;
+	--green: #13DEB9;
 	--light-green: #9bffee;
 	--light-orange: #FFE0D3;
 }
@@ -53,24 +54,29 @@ li {
 	grid-gap: 16px;
 	flex-wrap: wrap;
 }
+
 .head-title .left h1 {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
 	color: var(--subtext);
 }
+
 .head-title .left .breadcrumb {
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
 }
+
 .head-title .left .breadcrumb li {
 	color: var(--subtext);
 }
+
 .head-title .left .breadcrumb li a {
 	color: var(--subtext);
 	pointer-events: none;
 }
+
 .head-title .left .breadcrumb li a.active {
 	color: var(--blue);
 	pointer-events: unset;
@@ -84,16 +90,17 @@ li {
 	width: calc(100vw - 300px);
 	color: var(--subtext);
 }
-.table-data > div {
+
+.table-data>div {
 	border-radius: 20px;
 	background: var(--grey);
 	padding: 24px;
 	overflow-x: auto;
-    box-shadow: 1px 187px 75px rgba(192, 208, 235, 0.01), 
-    1px 105px 63px rgba(192, 208, 235, 0.05), 
-    1px 47px 47px rgba(192, 208, 235, 0.09), 
-    1px 12px 26px rgba(192, 208, 235, 0.1), 
-    1px 2px 0px rgba(192, 208, 235, 0.1);
+	box-shadow: 1px 187px 75px rgba(192, 208, 235, 0.01),
+		1px 105px 63px rgba(192, 208, 235, 0.05),
+		1px 47px 47px rgba(192, 208, 235, 0.09),
+		1px 12px 26px rgba(192, 208, 235, 0.1),
+		1px 2px 0px rgba(192, 208, 235, 0.1);
 
 }
 
@@ -103,7 +110,7 @@ li {
 	border-radius: 36px;
 	border: 1px solid var(--blue);
 	color: var(--blue);
-    font-size: 12px;
+	font-size: 12px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -112,9 +119,9 @@ li {
 }
 
 .btn-download:hover {
-    background: var(--blue);
+	background: var(--blue);
 	color: var(--light);
-    transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 .table-data .head {
@@ -123,11 +130,13 @@ li {
 	grid-gap: 16px;
 	margin-bottom: 24px;
 }
+
 .table-data .head h3 {
 	margin-right: auto;
 	font-size: 24px;
 	font-weight: 600;
 }
+
 .table-data .head .bx {
 	cursor: pointer;
 }
@@ -136,35 +145,42 @@ li {
 	flex-grow: 1;
 	flex-basis: 500px;
 }
+
 .table-data .order table {
 	width: 100%;
 	border-collapse: collapse;
 }
+
 .table-data .order table th {
 	padding-bottom: 12px;
 	font-size: 16px;
-    font-weight: 500;
+	font-weight: 500;
 	text-align: left;
 	border-bottom: 1px solid var(--grey);
 }
+
 .table-data .order table td {
 	padding: 16px 0;
 }
+
 .table-data .order table tr td:first-child {
 	display: flex;
 	align-items: center;
 	grid-gap: 12px;
 	padding-left: 6px;
 }
+
 .table-data .order table td img {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
 	object-fit: cover;
 }
+
 .table-data .order table tbody tr:hover {
 	background: var(--grey);
 }
+
 .table-data .order table tr td .status {
 	font-size: 12px;
 	padding: 6px 16px;
@@ -172,12 +188,128 @@ li {
 	border-radius: 20px;
 	font-weight: 500;
 }
+
 .table-data .order table tr td .status.low {
 	background: var(--blue);
 }
+
 .table-data .order table tr td .status.medium {
 	background: var(--yellow);
 }
+
 .table-data .order table tr td .status.high {
 	background: var(--green);
 }
+
+/* ===================== UPLOAD LINK ========================== */
+
+.file-upload-form {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.file-upload-label input {
+	display: none;
+}
+
+.file-upload-label i {
+	font-size: 250px;
+	color: var(--blue);
+	margin-bottom: 10px;
+}
+
+.upload-label {
+	color: var(--dark);
+	font-size: 32px;
+	font-weight: 500;
+	margin-top: -2.5rem;
+}
+
+.or {
+	font-size: 24px;
+}
+
+.file-upload-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	height: 70vh;
+	cursor: pointer;
+	background-color: var(--light-blue);
+	backdrop-filter: blur(5px);
+	opacity: 0.8;
+	/* padding: 30px 70px; */
+	border-radius: 40px;
+	border: 2px dashed var(--blue);
+	/* box-shadow: 0px 0px 200px -50px rgba(0, 0, 0, 0.719); */
+}
+
+.file-upload-design {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.browse-button {
+	background-color: var(--blue);
+	padding: 5px 15px;
+	border-radius: 10px;
+	font-size: 24px;
+	font-weight: 500;
+	color: white;
+	transition: all 0.3s;
+	margin-top: 1rem;
+}
+
+.browse-button:hover {
+	background: transparent;
+	border: 1px solid var(--blue);
+	color: var(--blue);
+}
+
+.file-upload-label.dragover {
+	opacity: 0.5;
+	border: 2px dashed var(--green);
+
+}
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	text-align: center;
+}
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+.close:hover,
+.close:focus {
+	color: var(--blue);
+	text-decoration: none;
+	cursor: pointer;
+}
+/* ===================== UPLOAD LINK ========================== */

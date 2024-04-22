@@ -61,12 +61,14 @@
                 </li>
             </ul>
 
-
             <div class="table-data">
                 <div class="order">
                     <div class="head">
                         <h3>Recent Uploads</h3>
-                        <i class='bx bx-search'></i>
+                        <a href="#" class="btn-download">
+                            <i class='bx bx-upload' ></i>
+                            <span class="text">Upload Image</span>
+                        </a>
                         <i class='bx bx-filter'></i>
                     </div>
                     <table>
@@ -74,50 +76,29 @@
                             <tr>
                                 <th>Image</th>
                                 <th>Date Uploaded</th>
+                                <th>Quantity</th>
                                 <th>Limonene Content</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {{ range .Images }}
                             <tr>
                                 <td>
-                                    <img src="img/people.png">
-                                    <p>John Doe</p>
+                                    <img src="{{ .Image }}">
+                                    <p>{{ .Name }}</p>
                                 </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status low">Low</span></td>
+                                <td>{{ .Date }}</td>
+                                <td><span class="lim-percent">{{ .LimonenePercent }}%</span></td>
+                                <td><span class="status 
+                                    {{if eq .IntensityNum 1}} low 
+                                    {{else if eq .IntensityNum 2}} medium 
+                                    {{else}} high 
+                                    {{end}}">
+                                    {{ .Intensity }}
+                                </span></td>
+                                
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/people.png">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status medium">Medium</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/people.png">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status high">High</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/people.png">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status medium">Medium</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/people.png">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status low">Low</span></td>
-                            </tr>
+                            {{ end }}
                         </tbody>
                     </table>
                 </div>

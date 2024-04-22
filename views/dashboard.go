@@ -12,10 +12,16 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	c := map[string]interface{}{}
 	images := []models.Images{}
 
+	uadmin.Trail(uadmin.DEBUG, "images; ", images)
+
+	uadmin.All(&images)
 	for x := range images {
 		uadmin.Preload(&images[x])
 	}
 	c["Images"] = images
+
+	// uadmin.FilterSorted()
+	// uadmin.JSONMarshal
 
 	total := uadmin.Count(images, "id > 0")
 	c["Total"] = total
