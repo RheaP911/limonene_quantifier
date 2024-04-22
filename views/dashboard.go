@@ -12,8 +12,20 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	c := map[string]interface{}{}
 	images := []models.Images{}
 
-	uadmin.All(&images)
+	for x := range images {
+		uadmin.Preload(&images[x])
+	}
 	c["Images"] = images
+
+	total := uadmin.Count(images, "id > 0")
+	c["Total"] = total
+
+	totalLow := uadmin.Count(images, "intensity_num == 1")
+	c["TotalLow"] = totalLow
+	totalMedium := uadmin.Count(images, "intensity_num == 2")
+	c["TotalMedium"] = totalMedium
+	totalHigh := uadmin.Count(images, "intensity_num == 3")
+	c["TotalHigh"] = totalHigh
 
 	c["Title"] = "Dashboard | Page"
 
