@@ -1,28 +1,44 @@
 package models
 
 import (
-	"time"
+    "time"
 
-	"github.com/uadmin/uadmin"
+    "github.com/uadmin/uadmin"
 )
 
 type Intensity int
 
-func (Intensity) Low() Intensity{
-	return 1
-}
-func (Intensity) Medium() Intensity{
-	return 2
-}
-func (Intensity) High() Intensity{
-	return 3
-}
+const (
+    Low Intensity = iota + 1
+    Medium
+    High
+)
 
 type Images struct {
-	uadmin.Model
-	Name string
-	Image string `uadmin:"image"`
-	Intensity Intensity
-	LimonenePercent string
-	Date time.Time `uadmin:"read_only"`
+    uadmin.Model
+    Name           string
+    Image          string `uadmin:"image"`
+    LimonenePercent float64 `uadmin:"help: Percent by weight"`
+    IntensityNum      Intensity `uadmin:"list_exclude"`
+	Intensity string
+    Date           time.Time
+}
+
+func (i *Images) Save() {
+    // Set intensity based on limonene percent
+    if i.LimonenePercent < 0.5 {
+        i.IntensityNum = Low
+		i.Intensity = "Low"
+    } else if i.LimonenePercent >= 0.5 && i.LimonenePercent <= 2 {
+        i.IntensityNum = Medium
+		i.Intensity = "Medium"
+    } else {
+        i.IntensityNum = High
+		i.Intensity = "High"
+	}
+
+    // Save the model
+    uadmin.Save(i)
+
+    // Additional business logic...
 }

@@ -29,9 +29,23 @@
       "err_msg": {},
       "Choices": {}
     },
+    "IntensityNum": {
+      "display_name": "Intensity Num",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "IntensityText": {
+      "display_name": "Intensity Text",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "LimonenePercent": {
       "display_name": "Limonene Percent",
-      "help": "",
+      "help": " Percent by weight",
       "pattern_msg": "",
       "err_msg": {},
       "Choices": {}

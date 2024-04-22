@@ -6,11 +6,190 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
 
 .dash3 {
     position: absolute;
     top: 0;
     left: 250px;
-    padding: 50px;
+    padding: 24px;
+    padding-top: 75px;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+
+	--light: #F9F9F9;
+	--blue: #5D87FF;
+	--light-blue: #CFE8FF;
+	--grey: #fff;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+    --subtext: #5A6A85;
+	--red: #FA896B;
+	--yellow: #FFAE1F;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+    --green: #13DEB9;
+	--light-green: #9bffee;
+	--light-orange: #FFE0D3;
+}
+
+.head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+.head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--subtext);
+}
+.head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+.head-title .left .breadcrumb li {
+	color: var(--subtext);
+}
+.head-title .left .breadcrumb li a {
+	color: var(--subtext);
+	pointer-events: none;
+}
+.head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+
+
+.table-data {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 24px;
+	width: calc(100vw - 300px);
+	color: var(--subtext);
+}
+.table-data > div {
+	border-radius: 20px;
+	background: var(--grey);
+	padding: 24px;
+	overflow-x: auto;
+    box-shadow: 1px 187px 75px rgba(192, 208, 235, 0.01), 
+    1px 105px 63px rgba(192, 208, 235, 0.05), 
+    1px 47px 47px rgba(192, 208, 235, 0.09), 
+    1px 12px 26px rgba(192, 208, 235, 0.1), 
+    1px 2px 0px rgba(192, 208, 235, 0.1);
+
+}
+
+.btn-download {
+	height: 36px;
+	padding: 0 16px;
+	border-radius: 36px;
+	border: 1px solid var(--blue);
+	color: var(--blue);
+    font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 10px;
+	font-weight: 500;
+}
+
+.btn-download:hover {
+    background: var(--blue);
+	color: var(--light);
+    transition: all 0.5s ease;
+}
+
+.table-data .head {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+	margin-bottom: 24px;
+}
+.table-data .head h3 {
+	margin-right: auto;
+	font-size: 24px;
+	font-weight: 600;
+}
+.table-data .head .bx {
+	cursor: pointer;
+}
+
+.table-data .order {
+	flex-grow: 1;
+	flex-basis: 500px;
+}
+.table-data .order table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.table-data .order table th {
+	padding-bottom: 12px;
+	font-size: 16px;
+    font-weight: 500;
+	text-align: left;
+	border-bottom: 1px solid var(--grey);
+}
+.table-data .order table td {
+	padding: 16px 0;
+}
+.table-data .order table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 12px;
+	padding-left: 6px;
+}
+.table-data .order table td img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.table-data .order table tbody tr:hover {
+	background: var(--grey);
+}
+.table-data .order table tr td .status {
+	font-size: 12px;
+	padding: 6px 16px;
+	color: var(--light);
+	border-radius: 20px;
+	font-weight: 500;
+}
+.table-data .order table tr td .status.low {
+	background: var(--blue);
+}
+.table-data .order table tr td .status.medium {
+	background: var(--yellow);
+}
+.table-data .order table tr td .status.high {
+	background: var(--green);
+}
+
+.btn-reset {
+    width: 180px;
+    background: var(--blue);
+    color: var(--light);
+}
+
+.btn-reset:hover {
+    background: var(--grey);
+    border-color: var(--blue);
+    color: var(--blue);
 }

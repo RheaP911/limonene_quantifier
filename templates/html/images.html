@@ -51,18 +51,15 @@
                             <p>{{ .Name }}</p>
                         </td>
                         <td>{{ .Date }}</td>
-                        <td><span class="lim-percent">{{ .LimonenePercent }}</span></td>
+                        <td><span class="lim-percent">{{ .LimonenePercent }}%</span></td>
                         <td><span class="status 
-                            {{if eq .Intensity 1}} low 
-                            {{else if eq .Intensity 2}} medium 
+                            {{if eq .IntensityNum 1}} low 
+                            {{else if eq .IntensityNum 2}} medium 
                             {{else}} high 
                             {{end}}">
-                            {{if eq .Intensity 1}} Low 
-                            {{else if eq .Intensity 2}} Medium 
-                            {{else}} High 
-                            {{end}}
+                            {{ .Intensity }}
                         </span></td>
-                        <!-- <td><span class="status low">{{ .Intensity }}</span></td> -->
+                        
                     </tr>
                     {{ end }}
                 </tbody>
