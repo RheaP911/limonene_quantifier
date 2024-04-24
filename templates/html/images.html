@@ -56,7 +56,9 @@
             <table>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Image</th>
+                        <th>Name</th>
                         <th>Date Uploaded</th>
                         <th>Quantity</th>
                         <th>Limonene Content</th>
@@ -65,10 +67,11 @@
                 <tbody>
                     {{ range .Images }}
                     <tr>
+                        <td>{{ .ID }}</td>
                         <td>
                             <img src="{{ .Image }}">
-                            <p>{{ .Name }}</p>
                         </td>
+                        <td>{{ .Name }}</td>
                         <td>{{ .Date }}</td>
                         <td><span class="lim-percent">{{ .LimonenePercent }}%</span></td>
                         <td><span class="status 

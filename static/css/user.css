@@ -141,7 +141,7 @@ li {
 	padding-bottom: 12px;
 	font-size: 16px;
     font-weight: 500;
-	text-align: left;
+	text-align: center;
 	border-bottom: 1px solid var(--grey);
 }
 .table-data .order table td {
@@ -150,6 +150,7 @@ li {
 .table-data .order table tr td:first-child {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	grid-gap: 12px;
 	padding-left: 6px;
 }
@@ -159,6 +160,7 @@ li {
 	border-radius: 50%;
 	object-fit: cover;
 }
+
 .table-data .order table tbody tr:hover {
 	background: var(--grey);
 }
@@ -178,7 +180,6 @@ li {
 .table-data .order table tr td .status.high {
 	background: var(--green);
 }
-
 .btn-reset {
     width: 180px;
     background: var(--blue);
