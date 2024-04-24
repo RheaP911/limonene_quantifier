@@ -212,10 +212,10 @@ body {
     padding: 24px;
     overflow-x: auto;
     box-shadow: 1px 187px 75px rgba(192, 208, 235, 0.01),
-        1px 105px 63px rgba(192, 208, 235, 0.05),
-        1px 47px 47px rgba(192, 208, 235, 0.09),
-        1px 12px 26px rgba(192, 208, 235, 0.1),
-        1px 2px 0px rgba(192, 208, 235, 0.1);
+		1px 105px 63px rgba(192, 208, 235, 0.05),
+		1px 47px 47px rgba(192, 208, 235, 0.09),
+		1px 12px 26px rgba(192, 208, 235, 0.1),
+		1px 2px 0px rgba(192, 208, 235, 0.1);
 
 }
 
@@ -234,6 +234,10 @@ body {
 
 #content main .table-data .head .bx {
     cursor: pointer;
+}
+
+#content main .table-data .head a {
+    text-decoration: none;
 }
 
 #content main .table-data .order {

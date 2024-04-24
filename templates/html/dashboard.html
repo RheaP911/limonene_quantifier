@@ -32,7 +32,7 @@
 
             <ul class="box-info">
                 <li>
-                    <i class='bx bx-image' ></i>
+                    <i class='bx bx-image'></i>
                     <span class="text">
                         <h3>{{ .Total }}</h3>
                         <p>Images</p>
@@ -46,7 +46,7 @@
                     </span>
                 </li>
                 <li>
-                    <i class='bx bx-like' ></i>
+                    <i class='bx bx-like'></i>
                     <span class="text">
                         <h3>{{ .TotalMedium }}</h3>
                         <p>Medium</p>
@@ -65,10 +65,7 @@
                 <div class="order">
                     <div class="head">
                         <h3>Recent Uploads</h3>
-                        <a href="#" class="btn-download">
-                            <i class='bx bx-upload' ></i>
-                            <span class="text">Upload Image</span>
-                        </a>
+                        <i class='bx bx-plus'></i>
                         <i class='bx bx-filter'></i>
                     </div>
                     <table>
@@ -80,25 +77,22 @@
                                 <th>Limonene Content</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {{ range .Images }}
-                            <tr>
+                        <tbody id="sampleTable">
+                            <!-- <tr>
                                 <td>
-                                    <img src="{{ .Image }}">
-                                    <p>{{ .Name }}</p>
+                                    <img src="">
+                                    <p></p>
                                 </td>
-                                <td>{{ .Date }}</td>
-                                <td><span class="lim-percent">{{ .LimonenePercent }}%</span></td>
+                                <td></td>
+                                <td><span class="lim-percent"></span></td>
                                 <td><span class="status 
                                     {{if eq .IntensityNum 1}} low 
                                     {{else if eq .IntensityNum 2}} medium 
                                     {{else}} high 
                                     {{end}}">
-                                    {{ .Intensity }}
-                                </span></td>
-                                
-                            </tr>
-                            {{ end }}
+                                    </span></td>
+
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -124,4 +118,36 @@
     </section>
     <!-- CONTENT -->
 </div>
+<script>
+    // Fetch data from the API
+    fetch('api/custom_list/')
+        .then(response => response.json())
+        .then(data => {
+            // Iterate over each object in the data array
+            data.forEach(sample => {
+                // Create a new row for each sample
+                let row = document.createElement("tr");
+
+                // Populate the row with sample data
+                row.innerHTML = `
+                <td>
+                    <img src="${sample.Images}" alt="Sample Image" style="max-width: 100px; max-height: 100px;">
+                    <p>${sample.Name}</p>
+                </td>
+                <td>${sample.Date}</td>
+                <td><span class="lim-percent">${sample.LimonenePercent}%</span></td>
+                <td>
+                    <span class="status ${sample.IntensityNum === 1 ? 'low' : sample.IntensityNum === 2 ? 'medium' : 'high'}">
+                        ${sample.Intensity}
+                    </span>
+                </td>
+
+                `;
+
+                // Append the row to the table
+                document.getElementById("sampleTable").appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+</script>
 {{ end }}

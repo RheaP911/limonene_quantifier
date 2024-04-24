@@ -5,7 +5,7 @@
 
 
 <div class="dash2">
-    <form class="file-upload-form" id="uploadForm">
+    <form method="POST" class="file-upload-form" id="uploadForm" style="display: none;">
         <label for="file" class="file-upload-label icon-upload" id="fileUploadLabel" >
             <div class="file-upload-design">
                 <i class='bx bx-cloud-upload' ></i>
@@ -13,15 +13,15 @@
                 <span class="or">or</span>
                 <span class="browse-button">Browse file</span>
             </div>
-            <input id="file" type="file" />
+            <input id="file" type="file" onchange="uploadImage()" />
         </label>
     </form>
-    <div id="uploadModal" class="modal">
+    <!-- <div id="uploadModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <p>File uploaded successfully!</p>
         </div>
-    </div>
+    </div> -->
     <div class="head-title">
         <div class="left">
             <h1>Images</h1>
@@ -44,10 +44,11 @@
     <div class="table-data">
         <div class="order">
             <div class="head">
-                <h3>Recent Uploads</h3>
+                <h3>Uploaded Images</h3>
                 <a href="#" class="btn-download" id="uploadBtn">
-                    <i class='bx bx-upload'></i>
-                    <span class="text">Upload Image</span>
+                    <i class='bx bx-upload' style="display: block;"></i>
+                    <i class='bx bx-check' style="display: none;"></i>
+                    <h4 class="text">Upload Image</h4>
                 </a>
                 <i class='bx bx-filter'></i>
             </div>

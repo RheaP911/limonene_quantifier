@@ -205,11 +205,11 @@ li {
 
 .file-upload-form {
 	width: 100%;
+	min-width: 1200px;
 	height: 100vh;
 	position: absolute;
 	top: 25%;
 	left: 25%;
-	display: none;
 	align-items: center;
 	justify-content: center;
 }
@@ -281,7 +281,9 @@ li {
 	border: 2px dashed var(--green);
 
 }
-.modal {
+
+/* ==================== MODAL SUCCESS ======================= */
+/* .modal {
 	display: none;
 	position: fixed;
 	z-index: 1;
@@ -311,5 +313,5 @@ li {
 	color: var(--blue);
 	text-decoration: none;
 	cursor: pointer;
-}
+} */
 /* ===================== UPLOAD LINK ========================== */

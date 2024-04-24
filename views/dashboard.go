@@ -2,6 +2,7 @@ package views
 
 import (
 	"net/http"
+	// "sort"
 	"strings"
 
 	"github.com/RheaP911/limonene_quantifier/models"
@@ -12,16 +13,27 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	c := map[string]interface{}{}
 	images := []models.Images{}
 
-	uadmin.Trail(uadmin.DEBUG, "images; ", images)
+	// uadmin.Trail(uadmin.DEBUG, "images; ", images)
 
 	uadmin.All(&images)
 	for x := range images {
 		uadmin.Preload(&images[x])
 	}
+
+	
+
 	c["Images"] = images
+
+
+	// imageID := uadmin.Get(images, "id = ?")
+
+	// c["imageID"] = imageID
+
 
 	// uadmin.FilterSorted()
 	// uadmin.JSONMarshal
+	// uadmin.FilterSortedTable()
+	// uadmin.User()
 
 	total := uadmin.Count(images, "id > 0")
 	c["Total"] = total
