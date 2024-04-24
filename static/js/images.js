@@ -60,6 +60,8 @@ function showUploadSuccess() {
 
     iconText.textContent = 'Success';
 
+
+
     // Change the text to "Success"
 
     // Set timeout to revert back to the original state after 2 seconds
@@ -72,7 +74,12 @@ function showUploadSuccess() {
 
         iconText.textContent = 'Upload Image';
 
+
+
     }, 2000); // Timeout set to 2 seconds (2000 milliseconds)
+
+    // alert("Submitted.")
+
 }
 
 function uploadImage() {
@@ -83,9 +90,13 @@ function uploadImage() {
             "imageUploaded": $("#file").val(),
         },
         success: function (test) {
-            localStorage.setItem("imageUploaded", test[0].imageUploaded)
+            localStorage.setItem("imageUploaded", JSON.stringify(data))
         }
+
+        
     })
 }
-console.log($("#imageUploaded").val())
-alert("Submitted.")
+
+// localStorage.setItem("imageUploaded", JSON.stringify(imageUploaded))
+
+// console.log($("#imageUploaded").val())

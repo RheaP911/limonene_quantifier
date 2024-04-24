@@ -78,21 +78,6 @@
                             </tr>
                         </thead>
                         <tbody id="sampleTable">
-                            <!-- <tr>
-                                <td>
-                                    <img src="">
-                                    <p></p>
-                                </td>
-                                <td></td>
-                                <td><span class="lim-percent"></span></td>
-                                <td><span class="status 
-                                    {{if eq .IntensityNum 1}} low 
-                                    {{else if eq .IntensityNum 2}} medium 
-                                    {{else}} high 
-                                    {{end}}">
-                                    </span></td>
-
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -103,14 +88,17 @@
                         </div>
                         <div>
                             <select class="form-select">
-                                <option value="1">March 2023</option>
-                                <option value="2">April 2023</option>
-                                <option value="3">May 2023</option>
-                                <option value="4">June 2023</option>
+                                <option value="1">Year 2024</option>
+                                <option value="2">Year 2022</option>
+                                <option value="3">Year 2021</option>
+                                <option value="4">Year 2020</option>
                             </select>
                         </div>
                     </div>
-                    <div id="chart"></div>
+                    <div id="chart">
+                        
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -148,6 +136,30 @@
                 document.getElementById("sampleTable").appendChild(row);
             });
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => console.error('Error fetching data:', error)
+        );
+
+    // var xValues = ["January", "February", "March", "April", "May", "June", "August", ];
+    // var yValues = [55, 49, 44, 24, 15];
+    // var barColors = ["red", "green","blue","orange","brown"];
+
+    // new Chart("myChart", {
+    // type: "bar",
+    // data: {
+    //     labels: xValues,
+    //     datasets: [{
+    //     backgroundColor: barColors,
+    //     data: yValues
+    //     }]
+    // },
+    // options: {
+    //     legend: {display: false},
+    //     title: {
+    //     display: true,
+    //     text: "World Wine Production 2018"
+    //     }
+    // }
+    // });
+
 </script>
 {{ end }}

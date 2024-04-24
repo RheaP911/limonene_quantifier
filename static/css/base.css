@@ -19,7 +19,7 @@ body {
 
 nav {
     /* border-right: 1px solid #c0d0eb; */
-    box-shadow: 0 0 3px #c0d0eb;
+    box-shadow: rgba(145,158,171,0.2) 0px 0px 2px 0px,rgba(145,158,171,0.12) 0px 12px 24px -4px;
     
 }
 
@@ -195,6 +195,7 @@ nav {
 .sidebar li a.active {
     background-color: #5D87FF;
 }
+
 
 .sidebar li a.active .text {
     color: #fff;

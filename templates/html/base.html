@@ -7,7 +7,8 @@
     {{ template "style" . }}
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/dashboard.css">
     <link rel="stylesheet" href="/static/css/images.css">
@@ -35,19 +36,19 @@
 
                 <ul class="menu-links" id="zodiac-buttons">
                     <li class="nav-link">
-                        <a href="/dashboard" class="nav-btn">
+                        <a href="/dashboard" class="nav-btn active" id="dashboard">
                             <ion-icon name="grid-outline" class="icon"></ion-icon>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="/images" class="nav-btn">
+                        <a href="/images" class="nav-btn" id="images">
                             <ion-icon name="images-outline" class="icon"></ion-icon>
                             <span class="text nav-text">Images</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="/user" class="nav-btn">
+                        <a href="/user" class="nav-btn" id="user">
                             <ion-icon name="people-outline" class="icon"></ion-icon>
                             <span class="text nav-text">User Management</span>
                         </a>
@@ -75,6 +76,7 @@
     {{ define "style" }} {{ end }}
     {{ define "script" }} {{ end }}
 
+    <script src="/static/js/base.js"></script>
     <script src="/static/js/getuser.js"></script>
     <script src="/static/js/dashboard.js"></script>
     <script src="/static/js/images.js"></script>

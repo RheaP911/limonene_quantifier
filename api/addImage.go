@@ -13,8 +13,6 @@ func AddImageAPIHandler(w http.ResponseWriter, r *http.Request) {
 
 	uploadedImage := r.FormValue("imageUploaded")
 
-	
-
 	addImage.Image = uploadedImage
 	err := uadmin.Save(&addImage)
 

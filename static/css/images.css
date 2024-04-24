@@ -96,11 +96,8 @@ li {
 	background: var(--grey);
 	padding: 24px;
 	overflow-x: auto;
-	box-shadow: 1px 187px 75px rgba(192, 208, 235, 0.01),
-		1px 105px 63px rgba(192, 208, 235, 0.05),
-		1px 47px 47px rgba(192, 208, 235, 0.09),
-		1px 12px 26px rgba(192, 208, 235, 0.1),
-		1px 2px 0px rgba(192, 208, 235, 0.1);
+	box-shadow: rgba(145,158,171,0.2) 0px 0px 2px 0px,
+    rgba(145,158,171,0.12) 0px 12px 24px -4px;
 
 }
 
