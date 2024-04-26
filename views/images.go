@@ -16,6 +16,7 @@ func ImagesHandler(w http.ResponseWriter, r *http.Request) map[string]interface{
 	for x := range images {
 		uadmin.Preload(&images[x])
 	}
+	
 	c["Images"] = images
 
 	c["Title"] = "Images | Page"

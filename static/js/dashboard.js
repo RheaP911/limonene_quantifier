@@ -19,7 +19,7 @@ Highcharts.chart('container', {
         categories: ['April', 'May', 'June', 'July'],
         crosshair: true,
         accessibility: {
-            description: 'Countries'
+            description: 'Month'
         },
         color: '#5A6A85'
     },

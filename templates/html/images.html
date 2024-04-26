@@ -5,17 +5,22 @@
 
 
 <div class="dash2">
-    <form method="POST" class="file-upload-form" id="uploadForm" style="display: none;">
-        <label for="file" class="file-upload-label icon-upload" id="fileUploadLabel" >
+    <div class="form-container">
+
+    </div>
+    <form action="api/addimage/" method="POST" enctype="multipart/form-data" class="file-upload-form" id="uploadForm" style="display: none;">
+        <label for="file" class="file-upload-label icon-upload" id="fileUploadLabel">
             <div class="file-upload-design">
-                <i class='bx bx-cloud-upload' ></i>
+                <i class='bx bx-cloud-upload'></i>
                 <p class="upload-label">Drag and Drop</p>
                 <span class="or">or</span>
                 <span class="browse-button">Browse file</span>
             </div>
-            <input id="file" type="file" onchange="uploadImage()" />
+            <input id="file" type="file" name="photo" id="photo" accept="image/*"/>
+            <button type="submit" id="save-btn">Save</button>
         </label>
     </form>
+
     <!-- <div id="uploadModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -52,7 +57,7 @@
                 </a>
                 <i class='bx bx-filter'></i>
             </div>
-            
+
             <table>
                 <thead>
                     <tr>
@@ -72,7 +77,7 @@
                             <img src="{{ .Image }}">
                         </td>
                         <td>{{ .Name }}</td>
-                        <td>{{ .Date }}</td>
+                        <td>{{ .Date.Format "January 2, 2006 at 15:04" }}</td>
                         <td><span class="lim-percent">{{ .LimonenePercent }}%</span></td>
                         <td><span class="status 
                             {{if eq .IntensityNum 1}} low 

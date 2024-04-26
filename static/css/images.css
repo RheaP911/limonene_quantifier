@@ -206,11 +206,18 @@ li {
 	width: 100%;
 	min-width: 1200px;
 	height: 100vh;
-	position: absolute;
-	top: 25%;
-	left: 25%;
+	position: fixed;
+	top: 15%;
+	left: 37%;
+	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.file-upload-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .file-upload-label input {
@@ -236,6 +243,7 @@ li {
 
 .file-upload-label {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 40%;
@@ -256,6 +264,7 @@ li {
 	align-items: center;
 	justify-content: center;
 	gap: 5px;
+	height: 60%;
 }
 
 .browse-button {

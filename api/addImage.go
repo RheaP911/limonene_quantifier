@@ -1,27 +1,75 @@
 package api
 
 import (
+	"io"
 	"net/http"
+	"os"
+	"strings"
 
 	"github.com/RheaP911/limonene_quantifier/models"
 	"github.com/uadmin/uadmin"
 )
 
 func AddImageAPIHandler(w http.ResponseWriter, r *http.Request) {
-	context := map[string]interface{}{}
-	addImage := models.Images{}
+	method := strings.ToUpper(r.Method)
+	if method == "POST" {
+		f, fh, err := r.FormFile("photo") //Name of the input
+		if err != nil {
+			uadmin.Trail(uadmin.ERROR, "Form file error, %s", err.Error())
+			uadmin.ReturnJSON(w, r, map[string]interface{}{
+				"status":  "error",
+				"err_msg": err.Error(),
+			})
+			return
+		}
 
-	uploadedImage := r.FormValue("imageUploaded")
+		if fh.Size <= 0 {
+			w.WriteHeader(400)
+			w.Write([]byte("Got file length <= 0"))
+			return
+		}
 
-	addImage.Image = uploadedImage
-	err := uadmin.Save(&addImage)
+		outFile, err := getFile(fh.Filename)
+		if err != nil {
+			uadmin.Trail(uadmin.ERROR, "Get file error %s", err.Error())
+			uadmin.ReturnJSON(w, r, map[string]interface{}{
+				"status":  "error",
+				"err_msg": err.Error(),
+			})
+			return
+		}
 
-	if err != nil {
-		uadmin.ReturnJSON(w, r, map[string]interface{}{
-			"status": "error",
-			"err_msg": "Error saving the database: " + err.Error(), 
-		})
-		return
+		written, err := io.Copy(outFile, f)
+		if err != nil {
+			uadmin.Trail(uadmin.ERROR, "Copy error. %s", err.Error())
+			uadmin.ReturnJSON(w, r, map[string]interface{}{
+				"status":  "error",
+				"err_msg": err.Error(),
+			})
+			return
+		}
+		uadmin.Trail(uadmin.INFO, "Written. %#v", written)
+
+		images := models.Images{}
+
+		// Create a path in media folders for the directory
+		images.Image = "/media/uploads/" + fh.Filename
+		images.Save()
+
+		uadmin.Save(&images)
+
+		// Redirect so  it will not stay on api/images
+		http.Redirect(w, r, "/images/", http.StatusSeeOther)
+
+	} else {
+		w.WriteHeader(http.StatusBadRequest)
 	}
-	uadmin.ReturnJSON(w, r, context)
+}
+
+func getFile(filename string) (*os.File, error) {
+	file, err := os.Create("media/uploads/" + filename)
+	if err != nil {
+		return nil, err
+	}
+	return file, nil
 }

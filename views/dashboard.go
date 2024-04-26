@@ -2,6 +2,7 @@ package views
 
 import (
 	"net/http"
+	// "time"
 	// "sort"
 	"strings"
 
@@ -13,31 +14,16 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	c := map[string]interface{}{}
 	images := []models.Images{}
 
-	// uadmin.Trail(uadmin.DEBUG, "images; ", images)
+	// currentTime := time.Now()
 
 	uadmin.All(&images)
 	for x := range images {
 		uadmin.Preload(&images[x])
 	}
-
-	
-
 	c["Images"] = images
-
-
-	// imageID := uadmin.Get(images, "id = ?")
-
-	// c["imageID"] = imageID
-
-
-	// uadmin.FilterSorted()
-	// uadmin.JSONMarshal
-	// uadmin.FilterSortedTable()
-	// uadmin.User()
 
 	total := uadmin.Count(images, "id > 0")
 	c["Total"] = total
-
 	totalLow := uadmin.Count(images, "intensity_num == 1")
 	c["TotalLow"] = totalLow
 	totalMedium := uadmin.Count(images, "intensity_num == 2")

@@ -30,8 +30,8 @@ fileUploadLabel.addEventListener('drop', (e) => {
         fileInput.files = files;
         // You can trigger file upload here
         // For example, submit the form
-        document.getElementById('uploadForm').submit();
-        showUploadSuccess();
+        // document.getElementById('uploadForm').submit();
+        uploadImage();
     }
 });
 
@@ -39,64 +39,16 @@ fileUploadLabel.addEventListener('drop', (e) => {
 fileInput.addEventListener('change', () => {
     // You can trigger file upload here
     // For example, submit the form
-    document.getElementById('uploadForm').submit();
-    showUploadSuccess();
+    // document.getElementById('uploadForm').submit();
+    uploadImage();
 });
 
 
-function showUploadSuccess() {
-    const uploadIcon = document.querySelector(".bx-upload");
-    const successIcon = document.querySelector(".bx-check");
-    const uploadDiv = document.querySelector("#uploadBtn");
-    const form = document.querySelector("#uploadForm");
-    var iconText = document.querySelector('.text');
-
-    // Display success icon
-    uploadIcon.style.display = 'none';
-    successIcon.style.display = 'block';
-    uploadDiv.style.background = '#5D87FF';
-    uploadDiv.style.color = '#F9F9F9';
-    form.style.display = 'none';
-
-    iconText.textContent = 'Success';
 
 
 
-    // Change the text to "Success"
-
-    // Set timeout to revert back to the original state after 2 seconds
-    setTimeout(function() {
-        // Display upload icon and hide success icon
-        uploadIcon.style.display = 'block';
-        successIcon.style.display = 'none';
-        uploadDiv.style.background = '#F9F9F9';
-        uploadDiv.style.color = '#5D87FF';
-
-        iconText.textContent = 'Upload Image';
-
-
-
-    }, 2000); // Timeout set to 2 seconds (2000 milliseconds)
-
-    // alert("Submitted.")
-
+function formatDate(dateString) {
+    const options = { month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
 }
-
-function uploadImage() {
-    $.ajax({
-        method: "POST",
-        url: "api/addimage",
-        data: {
-            "imageUploaded": $("#file").val(),
-        },
-        success: function (test) {
-            localStorage.setItem("imageUploaded", JSON.stringify(data))
-        }
-
-        
-    })
-}
-
-// localStorage.setItem("imageUploaded", JSON.stringify(imageUploaded))
-
-// console.log($("#imageUploaded").val())
