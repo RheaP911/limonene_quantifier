@@ -78,6 +78,24 @@
                             </tr>
                         </thead>
                         <tbody id="sampleTable">
+                            {{ range .Images }}
+                            <tr>
+                                <td>
+                                    <img src="{{ .Image }}">
+                                    <p>{{ .Name }}</p>
+                                </td>
+                                <td>{{ .Date.Format "January 2, 2006 at 15:04" }}</td>
+                                <td><span class="lim-percent">{{ .LimonenePercent }}%</span></td>
+                                <td><span class="status 
+                            {{if eq .IntensityNum 1}} low 
+                            {{else if eq .IntensityNum 2}} medium 
+                            {{else}} high 
+                            {{end}}">
+                                        {{ .Intensity }}
+                                    </span></td>
+
+                            </tr>
+                            {{ end }}
                         </tbody>
                     </table>
                 </div>
@@ -109,36 +127,71 @@
     <!-- CONTENT -->
 </div>
 <script>
-    // Fetch data from the API
-    fetch('api/custom_list/')
-        .then(response => response.json())
-        .then(data => {
-            // Iterate over each object in the data array
-            data.forEach(sample => {
-                // Create a new row for each sample
-                let row = document.createElement("tr");
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Limonene Content Levels in Uploaded Images',
+            align: 'center',
+            style: {
+                color: '#5A6A85',
+                fontWeight: '500'
+            }
+        },
+        subtitle: {
+            text:
+                'Starting Date: April 2024 ',
+            align: 'center'
+        },
+        xAxis: {
+            categories: ['{{ .ThirdPreviousMonth }}', '{{ .SecPreviousMonth }}', '{{ .PreviousMonth }}', '{{ .CurrentMonth }}'],
+            crosshair: true,
+            accessibility: {
+                description: 'Month'
+            },
+            color: '#5A6A85'
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'number of images uploaded'
+            },
+            color: '#5A6A85'
+        },
+        tooltip: {
+            valueSuffix: ' images',
+            color: '#5A6A85'
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+            {
+                name: 'Low',
+                data: [406292, 260000, 107000, 27500],
+                color: "#5D87FF",
+            },
+            {
+                name: 'Medium',
+                data: [51086, 136000, 141000, 77000],
+                color: "#FFAE1F"
 
-                // Populate the row with sample data
-                row.innerHTML = `
-                <td>
-                    <img src="${sample.Images}" alt="Sample Image" style="max-width: 100px; max-height: 100px;">
-                    <p>${sample.Name}</p>
-                </td>
-                <td>${formatDate(sample.Date)}</td>
-                <td><span class="lim-percent">${sample.LimonenePercent}%</span></td>
-                <td>
-                    <span class="status ${sample.IntensityNum === 1 ? 'low' : sample.IntensityNum === 2 ? 'medium' : 'high'}">
-                        ${sample.Intensity}
-                    </span>
-                </td>
+            },
+            {
+                name: 'High',
+                data: [490125, 354822, 105455, 188412],
+                color: "#13DEB9"
 
-                `;
+            }
+        ]
+    });
 
-                // Append the row to the table
-                document.getElementById("sampleTable").appendChild(row);
-            });
-        })
-        .catch(error => console.error('Error fetching data:', error)
-        );
+    // Add class to the chart container
+    document.getElementById('container').classList.add('custom-chart');
+
 </script>
 {{ end }}

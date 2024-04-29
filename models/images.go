@@ -40,7 +40,7 @@ func (i *Images) Save() {
 
 	// To change once AI is connected to the website
 	min := 0.01
-	max := 8.00
+	max := 6.59
 	minInt := int(min * 100)
 	maxInt := int(max * 100)
 

@@ -5,10 +5,8 @@
 
 
 <div class="dash2">
-    <div class="form-container">
-
-    </div>
-    <form action="api/addimage/" method="POST" enctype="multipart/form-data" class="file-upload-form" id="uploadForm" style="display: none;">
+    <!-- <form action="api/addimage/" method="POST" enctype="multipart/form-data" class="file-upload-form" id="uploadForm"
+        style="display: none;">
         <label for="file" class="file-upload-label icon-upload" id="fileUploadLabel">
             <div class="file-upload-design">
                 <i class='bx bx-cloud-upload'></i>
@@ -16,17 +14,32 @@
                 <span class="or">or</span>
                 <span class="browse-button">Browse file</span>
             </div>
-            <input id="file" type="file" name="photo" id="photo" accept="image/*"/>
+            <input id="file" type="file" name="photo" id="photo" accept="image/*" />
             <button type="submit" id="save-btn">Save</button>
         </label>
+    </form> -->
+    <form action="api/addimage/" method="POST" enctype="multipart/form-data" class="file-upload-form" id="uploadForm" style="display: none;">
+        <div class="upload-files-container">
+            <div class="drag-file-area">
+                <!-- <i class='bx bx-cloud-upload'></i> -->
+                <span class="material-icons-outlined upload-icon"></span>
+                <h3 class="dynamic-message"> Drag & drop your image here </h3>
+                <label class="label"> or <span class="browse-files"> <input type="file" name="photo" class="default-file-input" id="file" />
+                        <span class="browse-files-text browse-button">browse file</span> <span>from device</span> </span> </label>
+            </div>
+            <span class="cannot-upload-message"> <span class="material-icons-outlined">error</span> Please select a file
+                first <span class="material-icons-outlined cancel-alert-button">cancel</span> </span>
+            <div class="file-block">
+                <div class="file-info"> <span class="material-icons-outlined file-icon">description</span> <span
+                        class="file-name"> </span> | <span class="file-size"> </span> </div>
+                <span class="material-icons remove-file-icon">delete</span>
+                <div class="progress-bar"> </div>
+            </div>
+            <button type="button" class="upload-button"> Upload </button>
+            <button type="submit" class="upload-button"> Save </button>
+        </div>
     </form>
 
-    <!-- <div id="uploadModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>File uploaded successfully!</p>
-        </div>
-    </div> -->
     <div class="head-title">
         <div class="left">
             <h1>Images</h1>
@@ -95,4 +108,39 @@
     </div>
 
 </div>
+<!-- <script>
+    // Fetch data from the API
+    fetch('api/images/')
+        .then(response => response.json())
+        .then(data => {
+            // Iterate over each object in the data array
+            data.forEach(sample => {
+                // Create a new row for each sample
+                let row = document.createElement("tr");
+
+                // Populate the row with sample data
+                row.innerHTML = `
+                <th>${sample.ID}</th>
+                <td>
+                    <img src="${sample.Images}" alt="Sample Image" style="max-width: 100px; max-height: 100px;">
+                </td>
+                <td>${sample.Name}</td>
+                <td>${formatDate(sample.Date)}</td>
+                <td><span class="lim-percent">${sample.LimonenePercent}%</span></td>
+                <td>
+                    <span class="status ${sample.IntensityNum === 1 ? 'low' : sample.IntensityNum === 2 ? 'medium' : 'high'}">
+                        ${sample.Intensity}
+                    </span>
+                </td>
+
+                `;
+
+                // Append the row to the table
+                document.getElementById("imagesTable").appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error)
+        );
+    http.Redirect(w, r, "/images/", http.StatusSeeOther)
+</script> -->
 {{ end }}

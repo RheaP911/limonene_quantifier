@@ -23,7 +23,6 @@ func main() {
 	http.HandleFunc("/api/", uadmin.Handler(api.APIHandler))
 	http.HandleFunc("/api/images/", uadmin.Handler(api.ImagesAPIHandler))
 	http.HandleFunc("/api/addimage/", uadmin.Handler(api.AddImageAPIHandler))
-	http.HandleFunc("/api/custom_list/", uadmin.Handler(api.CustomListAPIHandler))
 
 	uadmin.StartServer()
 }

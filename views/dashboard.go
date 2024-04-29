@@ -2,8 +2,7 @@ package views
 
 import (
 	"net/http"
-	// "time"
-	// "sort"
+	"time"
 	"strings"
 
 	"github.com/RheaP911/limonene_quantifier/models"
@@ -14,14 +13,15 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	c := map[string]interface{}{}
 	images := []models.Images{}
 
-	// currentTime := time.Now()
-
+	// For the images graph
 	uadmin.All(&images)
+	uadmin.AdminPage("id", false, 0, 5, &images, "")
 	for x := range images {
 		uadmin.Preload(&images[x])
 	}
 	c["Images"] = images
 
+	// For the dashboard count
 	total := uadmin.Count(images, "id > 0")
 	c["Total"] = total
 	totalLow := uadmin.Count(images, "intensity_num == 1")
@@ -31,7 +31,38 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	totalHigh := uadmin.Count(images, "intensity_num == 3")
 	c["TotalHigh"] = totalHigh
 
+	now := time.Now()
+
+	year, month, _ := now.Date()
+	// For the uploads column graph
+	t := time.Date(year, month, 1, 0, 0, 0, 0, now.Location())
+	currentMonth := t.Month()
+	c["CurrentMonth"] = currentMonth
+
+	// uadmin.Trail(uadmin.DEBUG, "CurrentMonth", currentMonth)
+
+	previousMonth := currentMonth - 1
+	if currentMonth == time.January {
+		previousMonth = time.December
+	}
+	c["PreviousMonth"] = previousMonth
+	// uadmin.Trail(uadmin.DEBUG, "PreviousMonth", previousMonth)
+
+
+	secPreviousMonth := currentMonth - 2
+	if currentMonth == time.February {
+		previousMonth = time.December
+	}
+	c["SecPreviousMonth"] = secPreviousMonth
+
+	thirdPreviousMonth := currentMonth - 3
+	if currentMonth == time.March {
+		thirdPreviousMonth = time.December
+	}
+	c["ThirdPreviousMonth"] = thirdPreviousMonth
+
 	c["Title"] = "Dashboard | Page"
+
 
 	r.URL.Path = strings.TrimPrefix(r.URL.Path, "/dashboard")
 	return c

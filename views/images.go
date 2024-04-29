@@ -12,7 +12,9 @@ func ImagesHandler(w http.ResponseWriter, r *http.Request) map[string]interface{
 	c := map[string]interface{}{}
 	images := []models.Images{}
 
+
 	uadmin.All(&images)
+	uadmin.AdminPage("id", false, 0, -1, &images, "")
 	for x := range images {
 		uadmin.Preload(&images[x])
 	}

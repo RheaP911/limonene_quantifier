@@ -14,8 +14,6 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		AddImageAPIHandler(w, r)
 	case "images":
 		ImagesAPIHandler(w, r)
-	case "custom_list":
-		CustomListAPIHandler(w, r)
 	default:
 		w.Write([]byte("Not Found"))
 	}
