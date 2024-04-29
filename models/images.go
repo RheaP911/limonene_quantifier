@@ -26,6 +26,7 @@ type Images struct {
 	IntensityNum    Intensity `uadmin:"list_exclude"`
 	Intensity       string
 	Date            time.Time
+	MonthUploaded	string `uadmin:"list_exclude"`
 }
 
 func (i *Images) Save() {
@@ -65,6 +66,7 @@ func (i *Images) Save() {
 	}
 
 	i.Date = time.Now()
+	i.MonthUploaded = i.Date.Month().String()
 
 
 	// Save the model

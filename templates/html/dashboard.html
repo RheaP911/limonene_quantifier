@@ -172,18 +172,18 @@
         series: [
             {
                 name: 'Low',
-                data: [406292, 260000, 107000, 27500],
+                data: [{{ .LowTotalThirdMonth }}, {{ .LowTotalSecMonth }}, {{ .LowTotalPrevMonth }}, {{ .LowTotalCurrentMonth }}],
                 color: "#5D87FF",
             },
             {
                 name: 'Medium',
-                data: [51086, 136000, 141000, 77000],
+                data: [{{ .MediumTotalThirdMonth }}, {{ .MedumTotalSecMonth }}, {{ .MediumTotalPrevMonth }}, {{ .MediumTotalCurrentMonth }}],
                 color: "#FFAE1F"
 
             },
             {
                 name: 'High',
-                data: [490125, 354822, 105455, 188412],
+                data: [{{ .MediumTotalThirdMonth }}, {{ .HighTotalSecMonth }}, {{ .HighTotalPrevMonth }}, {{ .HighTotalCurrentMonth }}],
                 color: "#13DEB9"
 
             }

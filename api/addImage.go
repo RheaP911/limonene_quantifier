@@ -59,7 +59,7 @@ func AddImageAPIHandler(w http.ResponseWriter, r *http.Request) {
 		uadmin.Save(&images)
 
 		// Redirect so  it will not stay on api/images
-		http.Redirect(w, r, "/images/", http.StatusSeeOther)
+		http.Redirect(w, r, "/images#", http.StatusSeeOther)
 
 	} else {
 		w.WriteHeader(http.StatusBadRequest)

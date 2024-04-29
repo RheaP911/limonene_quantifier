@@ -39,7 +39,7 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	currentMonth := t.Month()
 	c["CurrentMonth"] = currentMonth
 
-	// uadmin.Trail(uadmin.DEBUG, "CurrentMonth", currentMonth)
+	uadmin.Trail(uadmin.DEBUG, "CurrentMonth", currentMonth)
 
 	previousMonth := currentMonth - 1
 	if currentMonth == time.January {
@@ -61,8 +61,40 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	}
 	c["ThirdPreviousMonth"] = thirdPreviousMonth
 
-	c["Title"] = "Dashboard | Page"
 
+	// Get the number of images uploaded in the month requested
+	
+
+	lowTotalCurrentMonth := uadmin.Count(images, "intensity_num == 1 AND month_uploaded = ?", currentMonth.String())
+	c["LowTotalCurrentMonth"] = lowTotalCurrentMonth
+	mediumTotalCurrentMonth := uadmin.Count(images, "intensity_num == 2 AND month_uploaded = ?", currentMonth.String())
+	c["MediumTotalCurrentMonth"] = mediumTotalCurrentMonth
+	highTotalCurrentMonth := uadmin.Count(images, "intensity_num == 3 AND month_uploaded = ?", currentMonth.String())
+	c["HighTotalCurrentMonth"] = highTotalCurrentMonth
+
+	
+	lowTotalPrevMonth := uadmin.Count(images, "intensity_num == 1 AND month_uploaded = ?", previousMonth.String())
+	c["LowTotalPrevMonth"] = lowTotalPrevMonth
+	mediumTotalPrevMonth := uadmin.Count(images, "intensity_num == 2 AND month_uploaded = ?", previousMonth.String())
+	c["MediumTotalPrevMonth"] = mediumTotalPrevMonth
+	highTotalPrevMonth := uadmin.Count(images, "intensity_num == 3 AND month_uploaded = ?", previousMonth.String())
+	c["HighTotalPrevMonth"] = highTotalPrevMonth
+
+	lowTotalSecMonth := uadmin.Count(images, "intensity_num == 1 AND month_uploaded = ?", secPreviousMonth.String())
+	c["LowTotalSecMonth"] = lowTotalSecMonth
+	mediumTotalSecMonth := uadmin.Count(images, "intensity_num == 2 AND month_uploaded = ?", secPreviousMonth.String())
+	c["MedumTotalSecMonth"] = mediumTotalSecMonth
+	highTotalSecMonth := uadmin.Count(images, "intensity_num == 3 AND month_uploaded = ?", secPreviousMonth.String())
+	c["HighTotalSecMonth"] = highTotalSecMonth
+
+	lowTotalThirdMonth := uadmin.Count(images, "intensity_num == 1 AND month_uploaded = ?", thirdPreviousMonth.String())
+	c["LowTotalThirdMonth"] = lowTotalThirdMonth
+	mediumTotalThirdMonth := uadmin.Count(images, "intensity_num == 2 AND month_uploaded = ?", thirdPreviousMonth.String())
+	c["MediumTotalSecMonth"] = mediumTotalThirdMonth
+	highTotalThirdMonth := uadmin.Count(images, "intensity_num == 3 AND month_uploaded = ?", thirdPreviousMonth.String())
+	c["HighTotalThirdMonth"] = highTotalThirdMonth
+
+	c["Title"] = "Dashboard | Page"
 
 	r.URL.Path = strings.TrimPrefix(r.URL.Path, "/dashboard")
 	return c
