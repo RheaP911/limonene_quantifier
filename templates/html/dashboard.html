@@ -121,6 +121,52 @@
 
                 </div>
             </div>
+            <!-- <div class="user-photo">
+                <div class="profile">
+                    <button>
+                        <img id="main-profile" src="/static/resources/df_photo.png">
+                    </button>
+                </div>
+                <div class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="mini-menu">
+                            <ul>
+                                <li class="edit-profile">Account Settings</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-content-edit" style="display: none;">
+                        <div class="mini-menu-edit">
+                            <label for="uploadFile">
+                                <img id="main-profile" src="/static/assets/img/no-profile.png">
+                                <span>Change Profile</span>
+                            </label>
+                            <input type="file" class="dpbtn" id="uploadFile" onchange="loadFile(event)">
+                            <p>Account Information:</p>
+                            <div class="menu-wrapper">
+                                <div class="menu-box1">
+                                    <label>Name:</label>
+                                    <label>Old Password:</label>
+                                    <label>New Password:</label>
+                                    <label>Repeat Password:</label>
+                                </div>
+                                <div class="menu-box2">
+                                    <input type="text" id="username" value="Juan Dela Cruz">
+                                    <input type="password" id="oldPassword" value="">
+                                    <input type="password" id="newPassword" value="">
+                                    <input type="password" id="repeatPassword" value="">
+                                </div>
+                            </div>
+                            <div class="menu-wrapper2">
+                                <input type="button" id="save-btn" value="Save">
+                                <input type="button" id="close-btn" value="Close">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
         </main>
         <!-- MAIN -->
     </section>
@@ -173,18 +219,18 @@
             {
                 name: 'Low',
                 data: [{{ .LowTotalThirdMonth }}, {{ .LowTotalSecMonth }}, {{ .LowTotalPrevMonth }}, {{ .LowTotalCurrentMonth }}],
-                color: "#5D87FF",
+        color: "#5D87FF",
             },
-            {
-                name: 'Medium',
-                data: [{{ .MediumTotalThirdMonth }}, {{ .MedumTotalSecMonth }}, {{ .MediumTotalPrevMonth }}, {{ .MediumTotalCurrentMonth }}],
-                color: "#FFAE1F"
+        {
+            name: 'Medium',
+            data: [{{ .MediumTotalThirdMonth }}, {{ .MedumTotalSecMonth }}, {{ .MediumTotalPrevMonth }}, {{ .MediumTotalCurrentMonth }}],
+        color: "#FFAE1F"
 
             },
-            {
-                name: 'High',
-                data: [{{ .MediumTotalThirdMonth }}, {{ .HighTotalSecMonth }}, {{ .HighTotalPrevMonth }}, {{ .HighTotalCurrentMonth }}],
-                color: "#13DEB9"
+        {
+            name: 'High',
+            data: [{{ .MediumTotalThirdMonth }}, {{ .HighTotalSecMonth }}, {{ .HighTotalPrevMonth }}, {{ .HighTotalCurrentMonth }}],
+        color: "#13DEB9"
 
             }
         ]

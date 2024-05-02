@@ -19,10 +19,12 @@ func main() {
 
 	http.HandleFunc("/", uadmin.Handler(views.MainHandler))
 	http.HandleFunc("/login/", uadmin.Handler(views.LoginHandler))
+	http.HandleFunc("/signup/", uadmin.Handler(views.SignUpHandler))
 	http.HandleFunc("/logout/", uadmin.Handler(views.LogoutHandler))
 	http.HandleFunc("/api/", uadmin.Handler(api.APIHandler))
 	http.HandleFunc("/api/images/", uadmin.Handler(api.ImagesAPIHandler))
 	http.HandleFunc("/api/addimage/", uadmin.Handler(api.AddImageAPIHandler))
+	http.HandleFunc("/api/new_user/", uadmin.Handler(api.NewUser))
 
 	uadmin.StartServer()
 }

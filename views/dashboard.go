@@ -2,16 +2,20 @@ package views
 
 import (
 	"net/http"
-	"time"
 	"strings"
+	"time"
 
 	"github.com/RheaP911/limonene_quantifier/models"
 	"github.com/uadmin/uadmin"
 )
 
-func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interface{} {
+func DashboardHandler(w http.ResponseWriter, r *http.Request, session *uadmin.Session) map[string]interface{} {
 	c := map[string]interface{}{}
 	images := []models.Images{}
+	// users := []uadmin.User{}
+
+	// user := session.Users[0].FirstName + " " + session.Users[0].LastName
+	// c["User"] = user
 
 	// For the images graph
 	uadmin.All(&images)
@@ -48,7 +52,6 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	c["PreviousMonth"] = previousMonth
 	// uadmin.Trail(uadmin.DEBUG, "PreviousMonth", previousMonth)
 
-
 	secPreviousMonth := currentMonth - 2
 	if currentMonth == time.February {
 		previousMonth = time.December
@@ -61,9 +64,9 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	}
 	c["ThirdPreviousMonth"] = thirdPreviousMonth
 
+	// uadmin.User()
 
 	// Get the number of images uploaded in the month requested
-	
 
 	lowTotalCurrentMonth := uadmin.Count(images, "intensity_num == 1 AND month_uploaded = ?", currentMonth.String())
 	c["LowTotalCurrentMonth"] = lowTotalCurrentMonth
@@ -72,7 +75,6 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) map[string]interfa
 	highTotalCurrentMonth := uadmin.Count(images, "intensity_num == 3 AND month_uploaded = ?", currentMonth.String())
 	c["HighTotalCurrentMonth"] = highTotalCurrentMonth
 
-	
 	lowTotalPrevMonth := uadmin.Count(images, "intensity_num == 1 AND month_uploaded = ?", previousMonth.String())
 	c["LowTotalPrevMonth"] = lowTotalPrevMonth
 	mediumTotalPrevMonth := uadmin.Count(images, "intensity_num == 2 AND month_uploaded = ?", previousMonth.String())

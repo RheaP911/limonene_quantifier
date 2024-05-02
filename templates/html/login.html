@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/static/css/style.css"> -->
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>Login Form</title>
 </head>
-
-<body>
-    <div class="login-container">
-        <div class="login-wrapper primary-bg">
-            <div class="login-logo">
-                <!-- <img src="/static/assets/img/integritynet-logo.png"> -->
-            </div>
-            <div class="login-form">
-                <form method="POST" name="login-form" class="login-box">
-                    <input id="login-username" type="text" name="username" placeholder="Username">
-                    <input id="login-password" type="password" name="password" placeholder="Password">
-                    <input id="login-submit" class="btn" type="submit" value="Login">
-                </form>
-            </div>
-        </div>
+<body class="login-body">
+    <div class="welcome-card">
+        <span class="welcome-text">Welcome to</span>
+        <span class="subtitle">Limonene Quantifier</span>
+        <img src="/static/resources/logo.png" alt="" class="site-name">
     </div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="/static/js/getuser.js"></script>
+    <div class="login-card">
+        <div class="title-container">
+            <p class="title">Login to your account</p>
+            <span class="subtitle">Quantify limonene content just by uploading a photo!</span>
+        </div>
+        <form method="POST" action="/login/">
+            <!-- <label class="input-label" for="username_field">Username</label><br> -->
+            <i class='bx bx-user'></i>
+            <input type="text" name="username" class="username_field" placeholder="Username" value="{{.Username}}" required><br>
+            <!-- <label class="input-label" for="password_field">Password</label><br> -->
+            <i class='bx bx-lock-alt' ></i>
+            <input type="password" name="password" class="password_field" placeholder="Password" value="{{.Password}}" required>
 
+            <div class="sign-up-btn">
+                <p>Don't have an account? <span>
+                    <a href="/signup" class="signup-text"> Sign Up</a>
+                </span></p>
+            </div>
+    
+            <br><button type="submit">Login</button><br>
+            
+        </form>
+        {{if .ErrExists}}
+        <p>
+            <b style="color:red; font-weight: 300; font-size: 12px">{{.Err}}</b>
+        </p>
+        {{end}}
+    </div><br>
+    
+    
+    
+</body>
 </html>

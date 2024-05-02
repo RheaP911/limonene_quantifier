@@ -537,3 +537,38 @@ body {
 .card-text:last-child {
     margin-bottom: 0
 }
+
+/* =================== USER ========================= */
+
+.user-photo button {
+    position: absolute;
+    left: 90%;
+    top: 5%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--light-blue);
+    border: 3px solid var(--light-blue);
+    box-shadow: rgba(145,158,171,0.2) 0px 0px 2px 0px,
+    rgba(145,158,171,0.12) 0px 12px 24px -4px;
+}
+
+#main-profile {
+    width: 70px;
+    height: 70px;
+}
+
+.modal-content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 60%;
+    top: 40%;
+    width: 500px;
+    border-radius: 25%;
+    background-color: var(--light-green);
+    border: 3px solid var(--light-green);
+    box-shadow: rgba(145,158,171,0.2) 0px 0px 2px 0px,
+    rgba(145,158,171,0.12) 0px 12px 24px -4px;
+}

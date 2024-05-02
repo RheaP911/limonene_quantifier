@@ -1,0 +1,234 @@
+/* ---- Poppins ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ---- Syne ----- */
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Kings&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Syne+Tactile&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+	--poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+	--light: #F9F9F9;
+	--blue: #5D87FF;
+	--light-blue: #CFE8FF;
+	--highlight-blue: #eaf5ff;
+	--grey: #fff;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--subtext: #5A6A85;
+	--red: #FA896B;
+	--yellow: #FFAE1F;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--green: #13DEB9;
+	--light-green: #9bffee;
+	--light-orange: #FFE0D3;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 0;
+    background-color: var(--light);
+
+}
+
+.login-wrapper {
+    background-color: var(--light);
+}
+
+.welcome-card,
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 80%;
+    box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
+		rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+}
+
+.welcome-card {
+    background-color: var(--blue);
+    padding: 50px;
+    border-radius: 45px 0 0 45px;
+}
+
+.welcome-card .welcome-text {
+    color: var(--light);
+    font-size: 20px;
+    line-height: 5rem;
+}
+
+.welcome-card .subtitle {
+    color: var(--light);
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: -0.5em;
+}
+
+.welcome-card .site-logo {
+    width: 100px;
+    margin-bottom: 2em;
+    /* animation: rotate 50s linear infinite; */
+    /* animation: float 2s linear infinite; */
+
+
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(2%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.login-card {
+    background-color: var(--light);
+    border-radius: 0 45px 45px 0;
+    /* background: url(/static/resources/horo_bg2.png); */
+}
+
+.login-card .title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2em;
+}
+
+
+.login-card .title {
+    margin-bottom: 1em;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark);
+    text-align: center;
+}
+
+.login-card .subtitle {
+    font-size: 0.725rem;
+    max-width: 80%;
+    text-align: center;
+    line-height: 1.1rem;
+    text-align: center;
+    color: var(--dark);
+}
+
+
+.login-card form {
+    text-align: center;
+}
+
+.login-card .input-label {
+    font-size: 16px;
+    color: var(--dark);
+    font-weight: 500;
+    text-align: left;
+}
+
+.login-card i {
+    position: absolute;
+    top: 70;
+    left: 70;
+    font-size: 20px;
+    color: #190C26;
+    z-index: 10;
+    margin-top: 0.6rem;
+    margin-left: 0.6rem;
+}
+
+.username_field ,
+.password_field,
+.firstname_field,
+.lastname_field,
+.email_field {
+    width: auto;
+    height: 40px;
+    padding: 0 0 0 40px;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    filter: drop-shadow(0px 1px 0px #efefef)
+        drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+    margin-bottom: 0.8rem;
+
+}
+
+.login-card .input {
+    padding: 10px;
+    background-color: transparent;
+    border-radius: #E6D3FB;
+}
+
+.login-card button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--light);
+    font-weight: 600;
+    height: 40px;
+    text-align: center;
+    border-radius: 7px;
+    border-color: transparent;
+    outline: none;
+    background: var(--blue);
+    margin-top: 0.8rem;
+}
+
+.sign-up-btn {
+    display: flex;
+    justify-content: right;
+} 
+
+.sign-up-btn p,
+.sign-up-btn span {
+    font-size: 11.6px;
+}
+
+.signup-text{
+    font-size: 11.6px;
+    text-align: right;
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+}

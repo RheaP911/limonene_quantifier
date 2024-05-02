@@ -10,13 +10,11 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 	path := strings.TrimSuffix(r.URL.Path, "/")
 
 	switch path {
-	case "add_image":
+	case "addimage":
 		AddImageAPIHandler(w, r)
 	case "images":
 		ImagesAPIHandler(w, r)
 	default:
 		w.Write([]byte("Not Found"))
 	}
-
-	
 }

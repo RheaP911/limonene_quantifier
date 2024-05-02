@@ -15,11 +15,33 @@ body {
 }
 
 
+:root {
+    --poppins: 'Poppins', sans-serif;
+    --lato: 'Lato', sans-serif;
+
+    --light: #F9F9F9;
+    --blue: #5D87FF;
+    --light-blue: #CFE8FF;
+    --grey: #fff;
+    --dark-grey: #AAAAAA;
+    --dark: #342E37;
+    --subtext: #5A6A85;
+    --red: #f15e35;
+    --light-red: #ffcec1;
+    --yellow: #FFAE1F;
+    --light-yellow: #FFF2C6;
+    --orange: #FD7238;
+    --green: #13DEB9;
+    --light-green: #9bffee;
+    --light-orange: #FFE0D3;
+}
+
+
 /* ----------- SIDEBAR ----------- */
 
 nav {
     /* border-right: 1px solid #c0d0eb; */
-    box-shadow: rgba(145,158,171,0.2) 0px 0px 2px 0px,rgba(145,158,171,0.12) 0px 12px 24px -4px;
+    /* box-shadow: rgba(145,158,171,0.2) 0px 0px 2px 0px,rgba(145,158,171,0.12) 0px 12px 24px -4px; */
     
 }
 
@@ -231,3 +253,7 @@ nav {
     margin-bottom: 1rem;
 }
 
+.user-photo {
+    background-color: var(--light-blue);
+    border-radius: 50%;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/css/signup.css">
+    <title>Sign Up Form</title>
+</head>
+
+<body class="login-body">
+    <div class="welcome-card">
+        <span class="welcome-text">Welcome to</span>
+        <span class="subtitle">Limonene Quantifier</span>
+        <img src="/static/resources/logo.png" alt="" class="site-name">
+    </div>
+    <div class="login-card">
+        <div class="title-container">
+            <p class="title">Sign Up for an Account</p>
+            <span class="subtitle">Quantify limonene content just by uploading a photo!</span>
+        </div>
+        <form method="POST" action="/api/new_user/">
+            <!-- <label class="input-label" for="username_field">Username</label><br> -->
+            <i class='bx bx-user'></i>
+            <input type="text" name="username" class="username_field" placeholder="Username" required><br>
+            <!-- <label class="input-label" for="password_field">Password</label><br> -->
+            <i class='bx bx-edit-alt'></i>
+            <input type="text" name="firstname" class="firstname_field" placeholder="First Name" required><br>
+            <i class='bx bx-edit-alt'></i>
+            <input type="text" name="lastname" class="lastname_field" placeholder="Last Name" required><br>
+            <i class='bx bx-lock-alt'></i>
+            <input type="password" name="password" class="password_field" placeholder="Password" required><br>
+            <i class='bx bx-envelope'></i>
+            <input type="text" name="email" class="email_field" placeholder="Email" required><br>
+
+            <div class="sign-up-btn">
+                <p>Already have an account? <span>
+                        <a href="/login/" class="signup-text"> Login</a>
+                    </span></p>
+            </div>
+
+            <br><button type="submit">Sign Up</button><br>
+
+        </form>
+        {{if .ErrExists}}
+        <p>
+            <b style="color:red; font-weight: 300; font-size: 12px">{{.Err}}</b>
+        </p>
+        {{end}}
+    </div><br>
+
+
+
+</body>
+
+</html>
